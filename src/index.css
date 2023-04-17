@@ -1,0 +1,108 @@
+:root {
+  /* Font Family */
+  --primary-ff: 'Fugaz One', cursive, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  /* Font Sizes */
+  --headline-fs: 2rem;
+  --subheadline-fs: 0.75rem;
+  --menu-title-fs: 1.5rem;
+  --recipe-title-fs: clamp(1.25rem, 2vw, 1.5rem);
+  --recipe-text-fs: clamp(0.85rem, 1.5vw, 1rem);
+
+  /* Block Sizes */
+  --menu-button-size: clamp(10rem, var(--subheadline-fs) * 12, 15rem);
+
+  /* Theme Colors */
+  --primary-clr: #FFA572;
+  --secondary-clr: #B7B7B7;
+
+  /* Text Colors */
+  --grey-clr: #6D6D6D;
+
+  /* Alignment */
+  --left-margin: 2rem;
+}
+
+* {
+  font-family: var(--primary-ff);
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (min-width: 600px) {
+  :root {
+    /* Font Sizes */
+    --headline-fs: 5.5vw;
+    --subheadline-fs: 2vw;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  :root {
+    /* Font Sizes */
+    --menu-title: 2rem;
+
+    /* Alignment */
+    --left-margin: 3rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  :root {
+    /* Font Sizes */
+    --subheadline-fs: 1.75vw;
+
+    /* Alignment */
+    --left-margin: 4rem;
+  }
+}
+
+/* Media Query for Brightness preference */
+/* @media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */
+
+/* Media Query for no animation */
+/* @media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+} */
+
+/* Extra small devices (phones, 600px and down) */
+/* @media only screen and (max-width: 600px) {} */
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* @media only screen and (min-width: 600px) {...} */
+
+/* Medium devices (landscape tablets, 768px and up) */
+/* @media only screen and (min-width: 768px) {...} */
+
+/* Large devices (laptops/desktops, 992px and up) */
+/* @media only screen and (min-width: 992px) {} */
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* @media only screen and (min-width: 1200px) {...} */

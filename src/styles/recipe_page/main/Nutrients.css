@@ -1,0 +1,10 @@
+.nutrients--title {
+    font-size: var(--recipe-title-fs);
+}
+
+.nutrients--row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-bottom: 2em;
+}

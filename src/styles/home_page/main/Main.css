@@ -1,0 +1,17 @@
+.home--main {
+    display: grid;
+    grid-template-columns:
+        calc(var(--menu-button-size) + var(--left-margin))
+        auto
+    ;
+    column-gap: var(--left-margin);
+    margin-top: 0.5em;
+    margin-bottom: 3em;
+}
+
+@media only screen and (max-width: 992px) {
+    .home--main {
+        /* Alignment */
+        display: block;
+    }
+}

@@ -1,0 +1,10 @@
+.recipe--header--image {
+    height: min(60vw, 77vh);
+    width: 100%;
+}
+
+.recipe--header--title {
+    font-size: calc(var(--headline-fs) / 1.2);
+    margin-inline: var(--left-margin);
+    color: var(--primary-clr);
+}

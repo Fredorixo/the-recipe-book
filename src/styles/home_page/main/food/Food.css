@@ -1,0 +1,43 @@
+.food {
+    margin-top: 1.5em;
+}
+
+.food--grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    
+    margin-top: 2em;
+    margin-right: var(--left-margin);
+}
+
+.food--link:link,
+.food--link:visited {
+    text-decoration: none;
+}
+
+.food--link:active,
+.food--link:hover {
+    filter: drop-shadow(8px 8px 10px rgb(128, 128, 128));
+}
+
+.food--text {
+    font-size: min(1.5rem, var(--headline-fs) / 2);
+}
+
+@media only screen and (max-width: 992px) {
+    .food {
+        /* Alignment */
+        margin-left: var(--left-margin);
+    }
+
+    .food--grid {
+        justify-content: center;
+    }
+
+    .food--text {
+        /* Alignment */
+        text-align: center;
+        margin-right: var(--left-margin);
+    }
+}

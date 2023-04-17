@@ -1,0 +1,4 @@
+.recipe--main {
+    margin-inline: var(--left-margin);
+    margin-bottom: 3em;
+}

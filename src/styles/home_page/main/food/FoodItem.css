@@ -1,0 +1,129 @@
+.item {
+    display: grid;
+    width: fit-content;
+    grid-template-columns: 16rem 6.5rem 11rem 3.5rem;
+    column-gap: 1.25em;
+    grid-template-areas:
+        "img title   title bookmark"
+        "img txt     txt   txt"
+        "img serving time  time"
+    ;
+    background-color: #2C2E2E;
+    border-radius: 10px;
+    padding: 0.2em;
+}
+
+.item--img {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    grid-area: img;
+    width: 100%;
+    height: 100%;
+}
+
+.item--bookmark {
+    grid-area: bookmark;
+    position: relative;
+    margin-top: -0.2em;
+}
+
+.item--bookmark--img {
+    position: absolute;
+    top: 0;
+}
+
+.item--bookmark--text {
+    position: absolute;
+    top: 0.8em;
+    left: 0.2em;
+    margin: 0;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+    color: black;
+}
+
+.item--title {
+    grid-area: title;
+    margin: 0.4em 0 0 0;
+    color: var(--primary-clr);
+}
+
+.item--text {
+    grid-area: txt;
+    margin: 1em 0;
+    color: var(--primary-clr);
+}
+
+.item--serving--title,
+.item--time--title {
+    margin: 0;
+}
+
+.item--serving {
+    grid-area: serving;
+    position: relative;
+    color: #F5F5F5;
+}
+
+.item--serving--border {
+    position: absolute;
+    inset-block: 25%;
+    right: 0;
+    width: 1px;
+    background-color: var(--secondary-clr);
+}
+
+.item--time {
+    grid-area: time;
+    color: #F5F5F5;
+}
+
+.item--time--text {
+    margin: 0.6em 0 0 0;
+    color: var(--secondary-clr);
+}
+
+/* Media Queries */
+@media only screen and (max-width: 1024px) {
+    .item {
+        position: relative;
+        grid-template-columns: 10rem 10rem;
+        grid-template-areas:
+            "img     img"
+            "title   title"
+            "txt     txt"
+            "serving time"
+        ;
+        column-gap: 0;
+    }
+
+    .item--img {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 0;
+    }
+
+    .item--bookmark {
+        position: absolute;
+        top: 0.15em;
+        right: 3.25em;
+    }
+
+    .item--title {
+        font-size: 1.35rem;
+        margin-inline: 0.6em;
+    }
+
+    .item--text {
+        font-size: 0.9rem;
+        margin: 1.35em 1em;
+    }
+    
+    .item--serving {
+        margin-inline: 1em;
+    }
+
+    .item--time {
+        margin-inline: 0.6em;
+    }
+}

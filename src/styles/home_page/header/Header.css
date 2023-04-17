@@ -1,0 +1,130 @@
+.home--header {
+    position: relative;
+}
+
+.home--header--img {
+    width: 100%;
+    opacity: 0.4;
+}
+
+.home--header--title,
+.home--header--text,
+.home--header--btn {
+    position: absolute;
+    left: var(--left-margin);
+}
+
+.home--header--title {
+    top: 0.5rem;
+    font-size: var(--headline-fs);
+}
+
+.home--header--text {
+    top: 4rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: var(--subheadline-fs);
+}
+
+.home--header--btn {
+    top: 7.5rem;
+    display: flex;
+    align-items: center;
+    padding: 0.8em 1.5em;
+    background-color: var(--primary-clr);
+    border: none;
+    border-radius: 50vw;
+}
+
+.home--header--btn:hover {
+    cursor: pointer;
+    box-shadow: 4px 4px 10px rgb(128, 128, 128);
+}
+
+.home--header--btn--text {
+    font-size: 1rem;
+    margin-right: 0.5em;
+}
+
+.spoon {
+    width: 1.25rem;
+}
+
+.hamburger-icon {
+    position: absolute;
+    z-index: 3;
+    top: clamp(2.3rem, 7vw, 4.5rem);
+    right: 1rem;
+
+    width: 24px;
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+}
+
+.bars {
+    height: 4px;
+    border-radius: 50vw;
+    background-color: black;
+    transition: opacity 2s, transform 2s;
+}
+
+.bars + .bars {
+    margin-top: 3px;
+}
+
+/* Animation */
+.close > .bars:nth-child(1) {
+    transform: translateY(7px) rotateZ(135deg);
+}
+
+.close > .bars:nth-child(2) {
+    transform: translateX(-7px);
+    opacity: 0;
+}
+
+.close > .bars:nth-child(3) {
+    transform: translateY(-7px) rotateZ(-135deg);
+}
+
+/* Media Queries */
+@media only screen and (max-width: 600px) {
+    .home--header--img {
+        height: 25vh;
+        width: auto;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .home--header--text {
+        top: 11vw;
+    }
+    
+    .home--header--btn {
+        top: 20vw;
+    }
+
+    .home--header--btn--text {
+        font-size: 2.6vw;
+    }
+
+    .spoon {
+        width: 3.25vw;
+    }
+
+    .hamburger-icon {
+        width: 35px;
+        right: 1.5rem;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .home--header--btn {
+        padding: 1.25em 2.25em;
+    }
+
+    .hamburger-icon {
+        display: none;
+    }
+}

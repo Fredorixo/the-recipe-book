@@ -1,0 +1,8 @@
+.directions--title {
+    font-size: var(--recipe-title-fs);
+}
+
+.directions--list {
+    color: var(--grey-clr);
+    font-size: var(--recipe-text-fs);
+}

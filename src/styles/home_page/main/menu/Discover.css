@@ -1,0 +1,7 @@
+.discover {
+    margin-bottom: 3em;
+}
+
+.discover--title {
+    font-size: var(--menu-title-fs);
+}

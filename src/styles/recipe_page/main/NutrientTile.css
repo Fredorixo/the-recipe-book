@@ -1,0 +1,72 @@
+.nutrients--tile {
+    display: grid;
+    grid-template-areas:
+        "value nutrient"
+        "value unit"
+    ;
+    column-gap: 1em;
+    width: fit-content;
+    padding: 0.8em 3em 0.8em 1em;
+    background-color: var(--primary-clr);
+    border-radius: 50vw;
+}
+
+.nutrients--tile:hover {
+    cursor: pointer;
+    box-shadow: 4px 4px 10px rgb(128, 128, 128);
+}
+
+.circle {
+    grid-area: value;
+    position: relative;
+    background-color: #F5F5F5;
+
+    opacity: 0.8;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.nutrients--tile--value {
+    grid-area: value;
+    position: absolute;
+    top: 28%;
+    inset-inline: 0;
+    text-align: center;
+    font-size: var(--recipe-text-fs);
+}
+
+.nutrients--tile--nutrient {
+    margin: 0;
+    grid-area: nutrient;
+    color: #FFFFFF;
+    text-transform: capitalize;
+    font-weight: normal;
+    font-size: calc(var(--recipe-title-fs) / 1.2);
+}
+
+.nutrients--tile--unit {
+    margin: 0;
+    grid-area: unit;
+    color: #4A4A4A;
+    text-transform: capitalize;
+    font-size: var(--recipe-text-fs);
+}
+
+@media only screen and (max-width: 992px) {
+    .nutrients--tile {
+        padding: 0.6em 2.25em 0.6em 0.7em;
+        column-gap: 0.75em;
+    }
+
+    .circle {
+        height: 45px;
+        width: 45px;
+    }
+
+    .nutrients--tile--value {
+        left: -2px;
+        top: 29%;
+    }
+}

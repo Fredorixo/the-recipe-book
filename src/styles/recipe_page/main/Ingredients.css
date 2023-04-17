@@ -1,0 +1,9 @@
+.ingredients--title {
+    font-size: var(--recipe-title-fs);
+}
+
+.ingredients--list {
+    color: var(--grey-clr);
+    margin-bottom: 2em;
+    font-size: var(--recipe-text-fs);
+}

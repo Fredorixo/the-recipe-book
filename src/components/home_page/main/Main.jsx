@@ -56,7 +56,7 @@ export default function Main() {
       fetch(`https://keto-diet.p.rapidapi.com/?${query}=${queryValue}`, {
         method: 'GET',
         headers: {
-          'X-RapidAPI-Key': `${import.meta.env.VITE_API_KEY}`,
+          'X-RapidAPI-Key': `${import.meta.env.API_KEY}`,
           'X-RapidAPI-Host': 'keto-diet.p.rapidapi.com'
         }
       })
@@ -83,7 +83,7 @@ export default function Main() {
         fetch(`https://keto-diet.p.rapidapi.com/?id=${id}`, {
           method: 'GET',
           headers: {
-            'X-RapidAPI-Key': `${import.meta.env.VITE_API_KEY}`,
+            'X-RapidAPI-Key': `${import.meta.env.API_KEY}`,
             'X-RapidAPI-Host': 'keto-diet.p.rapidapi.com'
           }
         })

@@ -4,7 +4,6 @@ import Food from './food/Food'
 import '../../../styles/home_page/main/Main.css'
 
 export default function Main() {
-  const [id, setId] = React.useState(0)
   const [query, setQuery] = React.useState('category')
   const [queryValue, setQueryValue] = React.useState(2)
   const [data, setData] = React.useState([])
@@ -19,14 +18,14 @@ export default function Main() {
   }
 
   function updateQueryForNutritiousDiet() {
-    setQuery('calories__lt=500&calories__gt')
+    setQuery("'calories__lt=500&calories__gt'")
     setQueryValue(300)
     handleAnimation()
   }
 
   function updateQueryForQuickDiet() {
-    setQuery('cook_time_in_minutes__lt=11&cook_time_in_minutes__tg')
-    setQueryValue(0)
+    setQuery("'cook_time_in_minutes__lt=11&cook_time_in_minutes__tg'")
+    setQueryValue(1)
     handleAnimation()
   }
   
@@ -43,67 +42,42 @@ export default function Main() {
     }
   }
 
-  function createRandomID() {
+  function createRandomNumber() {
     let num = Math.floor(Math.random() * 489 + 1)
     if(num === 121) ++num
-    setId(num)
+    setQuery('id')
+    setQueryValue(num)
     handleAnimation()
   }
-
-  // Handle API Calls
-  React.useEffect(() => {
-    if(!localStorage.getItem(`${query}-${queryValue}`)) {
-      fetch(`https://keto-diet.p.rapidapi.com/?${query}=${queryValue}`, {
-        method: 'GET',
-        headers: {
-          'X-RapidAPI-Key': `${import.meta.env.API_KEY}`,
-          'X-RapidAPI-Host': 'keto-diet.p.rapidapi.com'
-        }
-      })
-      .then(res => res.json())
-      .then(data => {
-        setData(data)
-
-        data.forEach(item => {
-          localStorage.setItem(`id-${item.id}`, JSON.stringify(item))
-        })
-
-        localStorage.setItem(`${query}-${queryValue}`, JSON.stringify(data))
-      })
-      .catch(error => console.log(error))
-    } else {
-      setData(JSON.parse(localStorage.getItem(`${query}-${queryValue}`)))
-    }
-  }, [query, queryValue])
   
-  // API Call for Random Selection
+  // Manage API Calls
   React.useEffect(() => {
-    if(id) {
-      if(!localStorage.getItem(`id-${id}`)) {
-        fetch(`https://keto-diet.p.rapidapi.com/?id=${id}`, {
-          method: 'GET',
-          headers: {
-            'X-RapidAPI-Key': `${import.meta.env.API_KEY}`,
-            'X-RapidAPI-Host': 'keto-diet.p.rapidapi.com'
-          }
-        })
-        .then(res => res.json())
-        .then(data => {
-          setData(data)
-          localStorage.setItem(`id-${id}`, JSON.stringify(data[0]))
-        })
-        .catch(error => console.log(error))
+    if(queryValue) {
+      if(!localStorage.getItem(`${query}-${queryValue}`)) {
+        fetch(`/.netlify/functions/fetch-recipes?query=${query}&value=${queryValue}`)
+          .then(res => res.json())
+          .then(data => {
+            setData(data)
+
+            data.forEach(item => {
+              localStorage.setItem(`id-${item.id}`, JSON.stringify(item))
+            })
+
+            if(query !== 'id') localStorage.setItem(`${query}-${queryValue}`, JSON.stringify(data))
+          })
+          .catch(error => console.log(error))
       } else {
-        setData([JSON.parse(localStorage.getItem(`id-${id}`))])
+        const data = JSON.parse(localStorage.getItem(`${query}-${queryValue}`))
+        query === 'id' ? setData([data]) : setData(data)
       }
     }
-  }, [id])
+  }, [query, queryValue])
 
   return (
     <main className='home--main' id='home--main'>
       <Menu
         handleClick={handleClick}
-        createRandomID={createRandomID}
+        createRandomNumber={createRandomNumber}
         updateQueryForNutritiousDiet={updateQueryForNutritiousDiet}
         updateQueryForQuickDiet={updateQueryForQuickDiet}
       />

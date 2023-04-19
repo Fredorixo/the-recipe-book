@@ -7,7 +7,7 @@ import '../../../styles/recipe_page/main/Details.css'
 
 export default function Details(props) {
     let diff = props.difficulty.toLowerCase()
-    if(diff === "m" || diff === "difficult") diff = "medium"
+    if(diff === "m" || diff === "difficult" || diff === "meduim") diff = "medium"
 
     const prepHours = Math.floor(props.prepTime / 60)
     const prepMinutes = Math.floor(props.prepTime % 60)

@@ -42,7 +42,7 @@ export default function Variety(props) {
                 text="vegetarian"
             />
             <Button
-                handleClick={props.createRandomID}
+                handleClick={props.createRandomNumber}
                 img="question-mark.png"
                 text="Random"
             />

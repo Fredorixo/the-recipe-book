@@ -12,7 +12,7 @@ export default function Menu(props) {
             />
             <Variety
                 handleClick={props.handleClick}
-                createRandomID={props.createRandomID}
+                createRandomNumber={props.createRandomNumber}
             />
         </section>
     )

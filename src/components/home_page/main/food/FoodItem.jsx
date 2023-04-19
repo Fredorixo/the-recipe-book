@@ -5,7 +5,7 @@ import '../../../../styles/home_page/main/food/FoodItem.css'
 export default function FoodItem(props) {
   const text = props.text?.slice(0, 40) ?? "Read more"
   let difficulty = props.difficulty?.toLowerCase() ?? "easy"
-  if(difficulty === "m" || difficulty === "difficult") difficulty = "medium"
+  if(difficulty === "m" || difficulty === "difficult" || difficulty === "meduim") difficulty = "medium"
 
   const difficultyText = difficulty === "medium" ? "med." : difficulty
   

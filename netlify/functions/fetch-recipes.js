@@ -1,9 +1,11 @@
+import axios from "axios"
+
 export async function handler(event) {
-    const {query, value} = event.queryStringParameters
-    const url = `https://keto-diet.p.rapidapi.com/?${query}=${value}`
     const API_KEY = process.env.API_KEY
     const options = {
         method: 'GET',
+        url: 'https://keto-diet.p.rapidapi.com/',
+        params: event.queryStringParameters,
         headers: {
           'X-RapidAPI-Key': `${API_KEY}`,
           'X-RapidAPI-Host': 'keto-diet.p.rapidapi.com'
@@ -11,8 +13,7 @@ export async function handler(event) {
     }
 
     try {
-        const res = await fetch(url, options)
-        const data = await res.json()
+        const {data} = await axios.request(options)
 
         return {
             statusCode: 200,
@@ -21,7 +22,7 @@ export async function handler(event) {
     } catch (error) {
         return {
             statusCode: 500,
-            body: error.toString()
+            body: error.toJSON()
         }
     }
 }

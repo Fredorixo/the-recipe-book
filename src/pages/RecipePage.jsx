@@ -5,7 +5,7 @@ import {useParams} from 'react-router-dom'
 
 export default function RecipePage() {
   const {id} = useParams()
-  const data = JSON.parse(localStorage.getItem(`id-${id}`))
+  const data = JSON.parse(localStorage.getItem(`id=${id}`))
 
   return (
     <div>

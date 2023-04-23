@@ -1,4 +1,4 @@
-import axios from "axios"
+const axios = require('axios')
 
 export async function handler(event) {
     const API_KEY = process.env.API_KEY

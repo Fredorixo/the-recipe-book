@@ -6,6 +6,7 @@ import '../../../styles/home_page/main/Main.css'
 export default function Main() {
   const [query, setQuery] = React.useState(`category=2`)
   const [data, setData] = React.useState([])
+  const hasPageRendered = React.useRef(false)
 
   function handleAnimation() {
     // Toggling Animation on Mobile View
@@ -46,6 +47,11 @@ export default function Main() {
   
   // Manage API Calls
   React.useEffect(() => {
+    if(hasPageRendered.current === false) {
+      hasPageRendered.current = true
+      return
+    }
+
     if(!(query.length === 7 && query.slice(0, 6) === 'search')) {
       if(!localStorage.getItem(`${query}`)) {
         fetch(`/.netlify/functions/fetch-recipes?${query}`)
@@ -77,6 +83,7 @@ export default function Main() {
       />
       <Food
         handleKeyDown={handleKeyDown}
+        hasPageRendered={hasPageRendered.current}
         data={data}
       />
     </main>

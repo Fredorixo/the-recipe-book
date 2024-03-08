@@ -27,7 +27,7 @@ export default function Food(props) {
     })
 
     const styles = {
-        display: props.data.length ? "none" : "block",
+        display: props.data.length || !props.hasPageRendered ? "none" : "block",
         color: "#6D6D6D",
     }
 

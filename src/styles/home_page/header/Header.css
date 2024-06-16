@@ -4,6 +4,7 @@
 
 .home--header--img {
     width: 100%;
+    aspect-ratio: 8 / 2.62;
     opacity: 0.4;
 }
 
